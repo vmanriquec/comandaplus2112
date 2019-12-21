@@ -1,0 +1,169 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:orientation="vertical"
+        android:paddingTop="50dp"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.47">
+
+            <RelativeLayout
+                android:id="@+id/background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorprincipal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtenviar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="Pedido"
+                        android:textColor="@color/colortres"
+                        android:textSize="24sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/accent"
+                        android:orientation="horizontal"
+                        android:paddingLeft="75dp"
+                        android:paddingTop="5dp">
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:text="Mesa"
+                            android:textColor="@color/colortres"
+                            android:textSize="18sp" />
+
+                        <Spinner
+                            android:id="@+id/spinnermesas2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:background="@color/colorprincipal"
+                            android:popupBackground="@color/colorprincipal"
+                            android:visibility="visible" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/botoncajaredondeada"
+                            android:text="LLevar"
+                            android:textColor="@color/coloruno"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/overlapImage"
+                android:layout_width="85dp"
+                android:layout_height="72dp"
+
+                android:adjustViewBounds="true"
+                android:background="@drawable/redondearimagen"
+                android:src="@drawable/burger" />
+
+            <EditText
+                android:id="@+id/descri"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_above="@+id/btn_dialog"
+
+                android:hint="obsevaciones"
+                android:inputType="textMultiLine"
+                android:textColorLink="@color/colorprincipalamarillo"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/direccion"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_above="@+id/descri"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="0.80"
+                android:background="@drawable/botoncajaredondeada"
+                android:ems="10"
+                android:hint="dirrecion a llevar delivery"
+                android:inputType="textMultiLine"
+                android:textColor="@color/fondito"
+                android:textColorLink="@color/common_google_signin_btn_text_dark_focused"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_dialog"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignBottom="@+id/background"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/circulofondo"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Enviar"
+                android:textColor="#ffffffff" />
+
+            <Button
+                android:id="@+id/atras"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+
+                android:layout_alignParentBottom="true"
+                 />
+
+            <TextView
+                android:id="@+id/txtdetalle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/overlapImage"
+                android:layout_marginTop="15dp"
+                android:inputType="textMultiLine"
+                android:paddingLeft="10dp"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/txttotalpedido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/btn_dialog"
+                android:layout_alignBottom="@+id/btn_dialog"
+                android:paddingRight="10dp"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
