@@ -78,6 +78,8 @@ public class FragmentB  extends Fragment implements View.OnClickListener, Recycl
     private String[] strArrData = {"No Suggestions"};
 
 
+
+
     ArrayList<String> mylist = new ArrayList<String>();
     SharedPreferences prefs;
     String face, FileName = "myfile", nombre, almacenactivosf, claveusuario, idalmacensf, idalmacenactivo, almacenactivo;
