@@ -49,6 +49,10 @@ dependencies {
     implementation 'jp.wasabeef:picasso-transformations:2.1.2'
     implementation 'jp.wasabeef:picasso-transformations:2.2.1'
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
+
+
+    implementation 'com.flipboard:bottomsheet-core:1.5.3'
+    implementation'com.flipboard:bottomsheet-commons:1.5.3'
     // If you want to use the GPU Filters
    //implementation' io.realm:android-adapters:2.0.0'
     implementation 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'

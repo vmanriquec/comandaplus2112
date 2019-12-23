@@ -1,5 +1,6 @@
 package com.example.comandaplus;
 
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -194,15 +195,34 @@ for (int w=0;w<ee.size();w++){
     }
        }
 
-        Log.d("shett","si entro al boton imagen "+oo);
+       /* Log.d("shett","si entro al boton imagen "+oo);
         new BottomSheet.Builder(getActivity(), R.style.BottomSheet_Dialog)
                 .title("Pedido de la mesa....")
                 .icon(R.drawable.burger)
                 .sheet(1, "oo")
-        .show();
 
+                .show();
+*/
+showCustomDialog();
     }
+    private void showCustomDialog() {
+        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
+        ViewGroup viewGroup = view.findViewById(android.R.id.content);
 
+        //then we will inflate the custom alert dialog xml that we created
+        View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.my_dialog, viewGroup, false);
+
+
+        //Now we need an AlertDialog.Builder object
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+        //setting the view of the builder to our custom view that we already inflated
+        builder.setView(dialogView);
+
+        //finally creating the alert dialog and displaying it
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
     private class traerproductosporidalmacenidfamilia extends AsyncTask<String, String, String> {
 
         HttpURLConnection conne;
