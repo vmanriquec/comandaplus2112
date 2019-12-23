@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.GridLayoutManager;
@@ -175,39 +176,31 @@ public class Maestraproductos extends Fragment implements View.OnClickListener, 
 
 
 
+    BottomSheetBehavior bottomSheetBehavior;
 
     @OnClick(R.id.imageButton)
     public void onClick() {
+        String oo="";String l;
         List<Detallepedidorealm> ee=Crudetallepedido.getAllDetallepedidorealm();
-        String oo="";
+
 for (int w=0;w<ee.size();w++){
 
 
     if(ee.get(w).getCantidadrealm()==0){
         oo="aun no hay ningun pedido :)";
     }else {
-        String l =  "         " + ee.get(w).getCantidadrealm() +"   "+ee.get(w).getNombreproductorealm()+ "\r\n";
+         l =  "         " + ee.get(w).getCantidadrealm() +"   "+ee.get(w).getNombreproductorealm()+ "\r\n";
         oo = oo + l;
     }
        }
-        new BottomSheet.Builder(getActivity())
+
+        Log.d("shett","si entro al boton imagen "+oo);
+        new BottomSheet.Builder(getActivity(), R.style.BottomSheet_Dialog)
                 .title("Pedido de la mesa....")
                 .icon(R.drawable.burger)
+                .sheet(1, "oo")
+        .show();
 
-                .sheet(1, oo)
-                .listener(
-
-                        new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-
-                    case R.id.help:
-
-                        break;
-                }
-            }
-        }).show();
     }
 
     private class traerproductosporidalmacenidfamilia extends AsyncTask<String, String, String> {

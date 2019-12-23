@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -97,7 +98,6 @@ public class Adaptadormaestraproducto extends RecyclerView.Adapter<Adaptadormaes
             this.cremas=(Button)v.findViewById(R.id.cremas);
 this.cantidadtarjeta=(TextView) v.findViewById(R.id.cantidadtarjeta);
 
-
         }
     }
 
@@ -112,6 +112,7 @@ this.cantidadtarjeta=(TextView) v.findViewById(R.id.cantidadtarjeta);
     public void onBindViewHolder(final AdaptadorViewHolder viewHolder, final int position) {
         final Productos item = items.get(position);
         viewHolder.itemView.setTag(item);
+
         viewHolder.productonombre.setText(item.getNombreproducto());
         viewHolder.productoingredientes.setText(item.getIngredientes());
         viewHolder.productoprecio.setText("S/. " + String.valueOf(item.getPrecventa()));
@@ -171,26 +172,7 @@ this.cantidadtarjeta=(TextView) v.findViewById(R.id.cantidadtarjeta);
 viewHolder.cremas.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        final Dialog dialog = new Dialog(mainContext);
 
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(false);
-        dialog.setContentView(R.layout.observaciones);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        TextView text = (TextView) dialog.findViewById(R.id.descri);
-        TextView detalle = (TextView) dialog.findViewById(R.id.txtdetalle);
-        TextView total = (TextView) dialog.findViewById(R.id.txttotalpedido);
-        TextView text2= (TextView) dialog.findViewById(R.id.txtenviar);
-        final Spinner ps=(Spinner) dialog.findViewById(R.id.spinnermesas2);
-
-        final CheckBox ch=(CheckBox) dialog.findViewById(R.id.checkBox);
-        final EditText descri=(EditText) dialog.findViewById(R.id.descri);
-        final EditText direccion=(EditText)dialog.findViewById(R.id.direccion);
-        //llenarmesas apopup
-
-
-
-        dialog.show();
     }
 });
 
@@ -201,8 +183,8 @@ viewHolder.cremas.setOnClickListener(new View.OnClickListener() {
                 final Animation creciente = AnimationUtils.loadAnimation(mainContext, R.anim.degrandeachico);
 viewHolder.meno.setAnimation(myAnim);
 viewHolder.cantidadpedida.setAnimation(creciente);
-                MediaPlayer mp = MediaPlayer.create(mainContext, R.raw.mariomas);
-                mp.start();
+                //MediaPlayer mp = MediaPlayer.create(mainContext, R.raw.mariomas);
+                //mp.start();
 viewHolder.meno.startAnimation(myAnim);
 viewHolder.cantidadpedida.startAnimation(creciente);
 
@@ -243,8 +225,8 @@ Crudetallepedido.getAllDetallepedidorealm();
                 final Animation decreciente = AnimationUtils.loadAnimation(mainContext, R.anim.dechicoagrande);
                 viewHolder.mas.setAnimation(myAnim);
                 viewHolder.cantidadpedida.setAnimation(decreciente);
-                MediaPlayer mp = MediaPlayer.create(mainContext, R.raw.mariomenos);
-                mp.start();
+                //MediaPlayer mp = MediaPlayer.create(mainContext, R.raw.mariomenos);
+                //mp.start();
                 viewHolder.mas.startAnimation(myAnim);
 
 

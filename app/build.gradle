@@ -57,7 +57,7 @@ dependencies {
     //implementation 'cn.pedant.sweetalert:library:1.3'
    // implementation 'com.github.f0ris.sweetalert:library:1.5.1'
     //implementation 'com.github.Leogiroux:sweet-alert-dialog:'
-    implementation 'com.cocosw:bottomsheet:1.+@aar'
+    implementation 'com.cocosw:bottomsheet:1.5.0@aar'
 
 
 }
