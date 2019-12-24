@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:background="@color/fbutton_color_sun_flower"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="6dp">
 
 
         <LinearLayout
