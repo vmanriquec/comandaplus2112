@@ -1,6 +1,7 @@
 package com.example.comandaplus;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -21,6 +22,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -203,15 +206,16 @@ for (int w=0;w<ee.size();w++){
 
                 .show();
 */
-showCustomDialog();
+       xxx();
+
     }
+
     private void showCustomDialog() {
         //before inflating the custom alert dialog layout, we will get the current activity viewgroup
         ViewGroup viewGroup = view.findViewById(android.R.id.content);
 
         //then we will inflate the custom alert dialog xml that we created
         View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.my_dialog, viewGroup, false);
-
 
         //Now we need an AlertDialog.Builder object
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -355,7 +359,26 @@ showCustomDialog();
         }
 
     }
+private void xxx() {
+      Dialog   dialog = new Dialog(getContext());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.my_dialog);
+        dialog.show();
 
 
+        TextView tv_message = (TextView) dialog.findViewById(R.id.txtenviar);
 
+        tv_message.setText("enviaaaaaar");
+
+        TextView etalle = (TextView) dialog.findViewById(R.id.txtdetalle);
+    etalle.setText("detaleeeee");
+    Button bt_yes = (Button) dialog.findViewById(R.id.buttonOk);
+        bt_yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.show();
+            }
+        });
+
+    }
 }

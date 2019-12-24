@@ -174,12 +174,6 @@ this.cantidadtarjeta=(TextView) v.findViewById(R.id.cantidadtarjeta);
 viewHolder.cremas.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        new BottomSheet.Builder(mainContext, R.style.BottomSheet_Dialog)
-                .title("Pedido de la mesa....")
-                .icon(R.drawable.burger)
-                .sheet(1, "oo")
-
-                .show();
 
     }
 });
