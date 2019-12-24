@@ -1,6 +1,7 @@
 package com.example.comandaplus.adapter;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.cocosw.bottomsheet.BottomSheet;
 import com.example.comandaplus.R;
 import com.example.comandaplus.Realm.Crudetallepedido;
 import com.example.comandaplus.Realm.Detallepedidorealm;
@@ -172,6 +174,12 @@ this.cantidadtarjeta=(TextView) v.findViewById(R.id.cantidadtarjeta);
 viewHolder.cremas.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+        new BottomSheet.Builder(mainContext, R.style.BottomSheet_Dialog)
+                .title("Pedido de la mesa....")
+                .icon(R.drawable.burger)
+                .sheet(1, "oo")
+
+                .show();
 
     }
 });
@@ -284,6 +292,9 @@ Crudetallepedido.getAllDetallepedidorealm();
         detallepedidorealm.setSubtotal(preciovtaproducto+cantidad);
         Crudetallepedido.Disminuirdetalle(detallepedidorealm);
     }
+
+
+
     @Override
     public int getItemCount() {
         return items.size();
