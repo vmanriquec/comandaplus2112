@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -12,6 +13,7 @@ import android.media.MediaPlayer;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -175,6 +177,25 @@ viewHolder.cremas.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
 
+
+        new AlertDialog.Builder(v.getContext())
+                .setTitle("Nuke planet Jupiter?")
+                .setMessage("Note that nuking planet Jupiter will destroy everything in there.")
+                .setPositiveButton("Nuke", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.d("MainActivity", "Sending atomic bombs to Jupiter");
+                    }
+                })
+                .setNegativeButton("Abort", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.d("MainActivity", "Aborting mission...");
+                    }
+                })
+                .show();
+
+        xxx();
     }
 });
 
@@ -287,6 +308,10 @@ Crudetallepedido.getAllDetallepedidorealm();
         Crudetallepedido.Disminuirdetalle(detallepedidorealm);
     }
 
+    private void xxx() {
+
+
+    }
 
 
     @Override

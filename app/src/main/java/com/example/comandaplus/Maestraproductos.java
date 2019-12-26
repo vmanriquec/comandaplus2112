@@ -345,7 +345,7 @@ for (int w=0;w<ee.size();w++){
 
 
                     adapter = new Adaptadormaestraproducto(people, getActivity().getApplicationContext());
-                    recycler.setLayoutManager(new GridLayoutManager(Maestraproductos.this.getActivity(), 2));
+                    recycler.setLayoutManager(new GridLayoutManager(Maestraproductos.this.getActivity(), 1));
 
                     recycler.setAdapter(adapter);
 
