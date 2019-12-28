@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cremas">
+        <item>mayonesa</item>
+        <item>mostaza</item>
+        <item>ketchup</item>
+        <item>aji</item>
+        <item>crema de rocoto</item>
+        <item>salsa de ajo</item>
+        <item>ocopa</item>
+        <item>aceituna</item>
+        <item>crema de palta</item>
+    </string-array>
+</resources>

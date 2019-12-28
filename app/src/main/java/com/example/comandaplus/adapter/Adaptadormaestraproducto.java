@@ -1,37 +1,29 @@
 package com.example.comandaplus.adapter;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.media.MediaPlayer;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.cocosw.bottomsheet.BottomSheet;
 import com.example.comandaplus.R;
 import com.example.comandaplus.Realm.Crudetallepedido;
 import com.example.comandaplus.Realm.Detallepedidorealm;
@@ -40,13 +32,9 @@ import com.example.comandaplus.modelo.Productos;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
-import io.realm.Realm;
-import io.realm.RealmResults;
 import jp.wasabeef.picasso.transformations.CropSquareTransformation;
 
 
@@ -176,17 +164,38 @@ this.cantidadtarjeta=(TextView) v.findViewById(R.id.cantidadtarjeta);
 viewHolder.cremas.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-
+      ArrayList  selectedItems = new ArrayList();
 
         new AlertDialog.Builder(v.getContext())
                 .setTitle("Nuke planet Jupiter?")
-                .setMessage("Note that nuking planet Jupiter will destroy everything in there.")
+                .setMessage("n there.")
+
+                .setMultiChoiceItems(R.array.cremas, null,
+                        (dialog, which, isChecked) -> {
+                            if (isChecked) {
+                                // If the user checked the item, add it to the selected items
+                                selectedItems.add(which);
+                                Log.d("aray",  selectedItems.toString()
+
+                                        );
+                            } else if (selectedItems.contains(which)) {
+                                // Else, if the item is already in the array, remove it
+                                selectedItems.remove(Integer.valueOf(which));
+                                Log.d("aray",  selectedItems.toString()
+
+                                );
+
+                            }
+                        })
+
+
                 .setPositiveButton("Nuke", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Log.d("MainActivity", "Sending atomic bombs to Jupiter");
                     }
                 })
+
                 .setNegativeButton("Abort", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -195,7 +204,7 @@ viewHolder.cremas.setOnClickListener(new View.OnClickListener() {
                 })
                 .show();
 
-        xxx();
+
     }
 });
 
@@ -308,10 +317,25 @@ Crudetallepedido.getAllDetallepedidorealm();
         Crudetallepedido.Disminuirdetalle(detallepedidorealm);
     }
 
-    private void xxx() {
+    private void xxx(View v) {
+
+        ViewGroup viewGroup = v.findViewById(android.R.id.content);
+
+        //then we will inflate the custom alert dialog xml that we created
+        View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.my_dialog, viewGroup, false);
 
 
+        //Now we need an AlertDialog.Builder object
+        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+
+        //setting the view of the builder to our custom view that we already inflated
+        builder.setView(dialogView);
+
+        //finally creating the alert dialog and displaying it
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
+
 
 
     @Override

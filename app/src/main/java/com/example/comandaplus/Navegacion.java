@@ -1,18 +1,17 @@
 package com.example.comandaplus;
 
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 import eu.long1.spacetablayout.SpaceTabLayout;
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
+
 public class Navegacion extends AppCompatActivity {
     SpaceTabLayout tabLayout;
 
