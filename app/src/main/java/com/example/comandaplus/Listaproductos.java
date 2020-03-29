@@ -77,8 +77,7 @@ public class Listaproductos extends Activity implements RecyclerView.OnItemTouch
         setContentView(R.layout.layoutmaestrasproduc);
         ButterKnife.bind(this);
         vaciardatosdedetallepedidorealm();
-        ((AppCompatActivity) getApplicationContext()).getSupportActionBar().hide();
-        prefs = this.getSharedPreferences(FileName, MODE_PRIVATE);
+          prefs = this.getSharedPreferences(FileName, MODE_PRIVATE);
         face = prefs.getString("facebook", "");
         LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,new IntentFilter("custom-message"));
         MultiAutoCompleteTextView myMultiAutoCompleteTextView = (MultiAutoCompleteTextView) findViewById(R.id.multiAutoCompleteTextView);

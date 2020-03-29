@@ -26,10 +26,7 @@ public class Navegacion extends AppCompatActivity {
         //add the fragments you want to display in a List
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(new Maestraproductos());
-        fragmentList.add(new FragmentB());
-        fragmentList.add(new Fragmentc());
-        fragmentList.add(new FragmentD());
-        fragmentList.add(new FragmentE());
+
 
         final CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.activity_main);
 

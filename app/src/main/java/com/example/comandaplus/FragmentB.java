@@ -275,6 +275,7 @@ public class FragmentB  extends Fragment implements View.OnClickListener, Recycl
 
 
                     adapter = new Adaptadormaestraproducto(people, getActivity().getApplicationContext());
+
                     recycler.setLayoutManager(new GridLayoutManager(FragmentB.this.getActivity(), 2));
 
                     recycler.setAdapter(adapter);
